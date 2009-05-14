@@ -10,7 +10,10 @@ RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+
 Rails::Initializer.run do |config|
+
+  config.gem "authlogic"
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -54,10 +57,12 @@ Rails::Initializer.run do |config|
   # If you change this key, all old sessions will become invalid!
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
-  config.action_controller.session = {
-    :session_key => '_Testing_session',
-    :secret      => 'f9e7904d0156c6e6d0cecae970a37b76932fcc4c9246c5df892ef3fd752d8c3c39bb8dbb849d78f38275f326cddc20d7bfc8f70742b633327b708b47ad345ebd'
-  }
+  #config.action_controller.session = {
+  #  :session_key => '_Testing_session',
+  #  :secret      => 'f9e7904d0156c6e6d0cecae970a37b76932fcc4c9246c5df892ef3fd752d8c3c39bb8dbb849d78f38275f326cddc20d7bfc8f70742b633327b708b47ad345ebd'
+  #}
+
+  config.action_controller.session_store = :active_record_store
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
